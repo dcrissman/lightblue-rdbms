@@ -1,0 +1,85 @@
+{
+    "entityInfo": {
+        "name": "test",
+        "datastore": {
+            "backend": "rdbms",
+            "datasource": "fake datasource",
+            "database": "test"
+        }
+    },
+    "schema": {
+        "name": "test",
+        "version": {
+            "value": "1.0",
+            "changelog": "blahblah"
+        },
+        "status": {
+            "value": "active"
+        },
+        "access" : {
+            "insert": ["anyone"],
+            "find": ["anyone"],
+            "update": ["anyone"],
+            "delete": ["anyone"]
+        },
+        "fields": {
+            "employeeid": {
+                "type": "integer"
+            },
+            "fullname": {
+                "type": "string"
+            }
+        },
+        "rdbms": {
+            "dialect": "oracle",
+            "insert": {
+                "bindings": {
+                    "in": [
+                        {
+                            "column": "id",
+                            "field": "employeeid"
+                        },
+                        {
+                            "column": "name",
+                            "field": "fullname"
+                        }
+                    ]
+                },
+                "expressions": [
+                    {
+                        "statement": {
+                            "type": "insert",
+                            "sql": "INSERT INTO employee (id, name) VALUES (:employeeid, :fullname)"
+                        }
+                    }
+                ]
+            },
+            "SQLMapping": {
+                "joins": [{
+                        "tables": [{"name": "employee"}],
+                        "projectionMappings": [{
+                                "column": "id",
+                                "field": "employeeid"
+                            },
+                            {
+                                "column": "name",
+                                "field": "fullname"
+                            }
+                        ]
+                    }
+                ],
+                "columnToFieldMap": [{
+                        "table": "employee",
+                        "column": "id",
+                        "field": "employeeid"
+                    },
+                    {
+                        "table": "employee",
+                        "column": "name",
+                        "field": "fullname"
+                    }
+                ]
+            }
+        }
+    }
+}

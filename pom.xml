@@ -129,9 +129,9 @@
                 <version>2.3</version>
             </dependency>
             <dependency>
-                <groupId>org.hsqldb</groupId>
-                <artifactId>hsqldb</artifactId>
-                <version>2.3.2</version>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>1.4.182</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
@@ -146,6 +146,12 @@
             <groupId>com.redhat.lightblue</groupId>
             <artifactId>query-api</artifactId>
             <version>${lightblue-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.redhat.lightblue</groupId>
+            <artifactId>test</artifactId>
+            <version>${lightblue-core.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -180,8 +186,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
